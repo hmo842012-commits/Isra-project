@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مديرة المن والسلوى - PDF عربي</title>
+    <title>عمر حلونچي - إدارة الطلبات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -15,7 +15,7 @@
         }
 
         body {
-            font-family: 'Cairo', 'Tahoma', 'Arial', sans-serif;
+            font-family: 'Cairo', 'Tahoma', sans-serif;
             background: linear-gradient(145deg, #fdf5e6, #f7ebd0);
             min-height: 100vh;
             padding: 20px;
@@ -41,7 +41,7 @@
             border-radius: 48px;
             padding: 2rem;
             width: 90%;
-            max-width: 380px;
+            max-width: 400px;
             text-align: center;
             box-shadow: 0 25px 35px rgba(0,0,0,0.3);
         }
@@ -54,11 +54,23 @@
         .login-card input {
             width: 100%;
             padding: 14px;
-            margin: 12px 0;
+            margin: 10px 0;
             border: 2px solid #e0caa3;
             border-radius: 60px;
             font-size: 1rem;
             background: white;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .checkbox-group input {
+            width: 20px;
+            margin: 0;
         }
 
         .login-card button {
@@ -80,7 +92,7 @@
         /* Main App Container */
         .app-wrapper {
             display: none;
-            max-width: 1300px;
+            max-width: 1400px;
             margin: auto;
         }
 
@@ -93,13 +105,12 @@
             padding: 12px 25px;
             border-radius: 50px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 10px;
         }
-
         .top-bar h2 {
             color: #7a4316;
         }
-
         .logout-btn {
             background: #c29a6b;
             border: none;
@@ -116,7 +127,6 @@
             padding: 2rem;
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
-
         .screen-title {
             font-size: 1.8rem;
             color: #8B4513;
@@ -124,8 +134,6 @@
             padding-right: 15px;
             margin-bottom: 25px;
         }
-
-        /* Main Menu */
         .menu-buttons {
             display: flex;
             gap: 30px;
@@ -133,7 +141,6 @@
             flex-wrap: wrap;
             margin-top: 40px;
         }
-
         .menu-card {
             background: linear-gradient(135deg, #fff3e5, #ffe6d0);
             padding: 2rem;
@@ -142,20 +149,16 @@
             text-align: center;
             cursor: pointer;
             transition: 0.3s;
-            border: 1px solid #efdbbc;
         }
-
         .menu-card i {
             font-size: 3rem;
             color: #b97f44;
             margin-bottom: 15px;
         }
-
         .menu-card h3 {
             font-size: 1.5rem;
             color: #5a3a22;
         }
-
         .menu-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 30px rgba(0,0,0,0.1);
@@ -165,14 +168,12 @@
         .form-group {
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             font-weight: bold;
             color: #7a4316;
             margin-bottom: 6px;
         }
-
         select, input, textarea {
             width: 100%;
             padding: 12px;
@@ -182,12 +183,14 @@
             font-size: 1rem;
             font-family: inherit;
         }
-
-        textarea {
-            resize: vertical;
-            border-radius: 20px;
+        .row-2cols {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
-
+        .row-2cols .form-group {
+            flex: 1;
+        }
         .btn-primary {
             background: #b97f44;
             border: none;
@@ -196,9 +199,7 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
-            font-size: 1rem;
         }
-
         .back-link {
             display: inline-block;
             margin-top: 20px;
@@ -209,7 +210,7 @@
             color: #5a3a22;
         }
 
-        /* Reports */
+        /* Filters */
         .filters-bar {
             display: flex;
             flex-wrap: wrap;
@@ -232,7 +233,6 @@
             color: white;
             cursor: pointer;
         }
-
         .tabs {
             display: flex;
             gap: 15px;
@@ -240,7 +240,6 @@
             border-bottom: 2px solid #f0e0c8;
             padding-bottom: 10px;
         }
-
         .tab-btn {
             background: none;
             border: none;
@@ -249,19 +248,16 @@
             border-radius: 30px;
             cursor: pointer;
         }
-
         .tab-btn.active {
             background: #b97f44;
             color: white;
         }
-
         .stats-summary {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
-
         .stat-card {
             background: #fef3e6;
             padding: 10px 18px;
@@ -270,29 +266,25 @@
             text-align: center;
             font-weight: bold;
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
         }
-
         th, td {
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             border-bottom: 1px solid #eeddbb;
+            font-size: 0.9rem;
         }
-
         th {
             background: #f7ebd6;
         }
-
         .status-badge {
             padding: 4px 12px;
             border-radius: 50px;
             font-size: 0.8rem;
             display: inline-block;
         }
-
         .status-shipped { background: #c8e6c9; color: #2e7d32; }
         .status-not-arrived { background: #ffe0b2; color: #bf5b0d; }
         .status-not-found { background: #ffcdd2; color: #c62828; }
@@ -302,17 +294,10 @@
             border: none;
             font-size: 1.2rem;
             cursor: pointer;
-            margin: 0 5px;
-            padding: 5px;
-            border-radius: 8px;
-            transition: 0.2s;
+            margin: 0 3px;
         }
         .edit-btn { color: #d49c3c; }
-        .edit-btn:hover { background: #f0e0c0; transform: scale(1.1);}
         .delete-btn { color: #c7362b; }
-        .delete-btn:hover { background: #ffdddd; transform: scale(1.1);}
-
-        /* Modal for edit */
         .modal {
             position: fixed;
             top: 0;
@@ -337,12 +322,9 @@
             padding: 2rem;
             border-radius: 48px;
             width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-        .modal-content h3 {
-            color: #8B4513;
-            margin-bottom: 1rem;
+            max-width: 550px;
+            max-height: 90vh;
+            overflow-y: auto;
         }
         .modal-buttons {
             display: flex;
@@ -350,103 +332,107 @@
             justify-content: center;
             margin-top: 20px;
         }
-        .modal-buttons button {
-            padding: 8px 20px;
-            border-radius: 40px;
-            border: none;
-            cursor: pointer;
-        }
-        .save-edit-btn { background: #b97f44; color: white; }
-        .cancel-edit-btn { background: #ccc; }
-
-        /* Print/PDF style */
-        .pdf-report-container {
-            background: white;
-            padding: 20px;
-            font-family: 'Cairo', 'Tahoma', sans-serif;
-            direction: rtl;
-        }
-        .pdf-report-container table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .pdf-report-container th, .pdf-report-container td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: center;
-        }
-        .pdf-report-container .status-shipped { background: #c8e6c9; }
-        .pdf-report-container .status-not-arrived { background: #ffe0b2; }
-        .pdf-report-container .status-not-found { background: #ffcdd2; }
+        .save-edit-btn { background: #b97f44; color: white; padding: 8px 20px; border-radius: 40px; border: none; }
+        .cancel-edit-btn { background: #ccc; padding: 8px 20px; border-radius: 40px; border: none; }
 
         @media (max-width: 700px) {
-            .screen { padding: 1.2rem; }
-            .menu-card { width: 100%; }
-            th, td { font-size: 0.75rem; }
-            .action-btn { font-size: 1rem; }
+            .screen { padding: 1rem; }
+            th, td { font-size: 0.7rem; }
         }
     </style>
 </head>
 <body>
 
-<!-- Login Screen -->
+<!-- Login -->
 <div id="loginOverlay" class="login-overlay">
     <div class="login-card">
         <i class="fas fa-crown" style="font-size: 2.5rem; color: #c98a4b;"></i>
         <h2>تسجيل الدخول - المديرة</h2>
-        <input type="text" id="username" placeholder="اسم المستخدم">
-        <input type="password" id="password" placeholder="كلمة المرور">
+        <input type="text" id="username" placeholder="اسم المستخدم" autocomplete="username">
+        <input type="password" id="password" placeholder="كلمة المرور" autocomplete="current-password">
+        <div class="checkbox-group">
+            <input type="checkbox" id="rememberMe"> <label for="rememberMe">تذكرني</label>
+        </div>
         <button id="loginBtn">دخول</button>
         <div id="loginError" class="error-msg"></div>
     </div>
 </div>
 
-<!-- Main Application -->
+<!-- Main App -->
 <div id="appWrapper" class="app-wrapper">
     <div class="top-bar">
-        <h2><i class="fas fa-chart-line"></i> لوحة مديرة المن والسلوى</h2>
+        <h2><i class="fas fa-chart-line"></i> عمر حلونچي - إدارة الطلبات</h2>
         <button class="logout-btn" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> خروج</button>
     </div>
 
-    <!-- Screen 1: Main Menu -->
+    <!-- القائمة الرئيسية -->
     <div id="mainMenuScreen" class="screen">
         <div class="screen-title">القائمة الرئيسية</div>
         <div class="menu-buttons">
             <div class="menu-card" id="goToAddOrderBtn">
                 <i class="fas fa-plus-circle"></i>
                 <h3>إضافة طلب جديد</h3>
-                <p>تسجيل طلب منتج، حالة، وملاحظات</p>
+                <p>تسجيل طلب مع بيانات العميل</p>
             </div>
             <div class="menu-card" id="goToReportsBtn">
                 <i class="fas fa-chart-bar"></i>
                 <h3>التقارير</h3>
-                <p>تقرير أسبوعي وشهري مع فلترة وتصدير PDF</p>
+                <p>عرض وتصفية الطلبات</p>
             </div>
         </div>
     </div>
 
-    <!-- Screen 2: Add Order -->
+    <!-- إضافة طلب -->
     <div id="addOrderScreen" class="screen" style="display: none;">
         <div class="screen-title"><i class="fas fa-clipboard-list"></i> إضافة طلب جديد</div>
-        <div class="form-group">
-            <label>المنتج</label>
-            <select id="productSelect">
-                <option value="المن">🍯 المن</option>
-                <option value="السلوى">🍬 السلوى</option>
-            </select>
+        <div class="row-2cols">
+            <div class="form-group">
+                <label>اسم العميل *</label>
+                <input type="text" id="clientName" placeholder="الاسم الكامل">
+            </div>
+            <div class="form-group">
+                <label>رقم الجوال *</label>
+                <input type="tel" id="clientPhone" placeholder="مثال: 05xxxxxxxx">
+            </div>
         </div>
         <div class="form-group">
-            <label>الشهر</label>
-            <select id="monthSelect">
-                <option value="1">يناير</option><option value="2">فبراير</option><option value="3">مارس</option>
-                <option value="4">أبريل</option><option value="5">مايو</option><option value="6">يونيو</option>
-                <option value="7">يوليو</option><option value="8">أغسطس</option><option value="9">سبتمبر</option>
-                <option value="10">أكتوبر</option><option value="11">نوفمبر</option><option value="12">ديسمبر</option>
-            </select>
+            <label>العنوان</label>
+            <input type="text" id="clientAddress" placeholder="العنوان بالتفصيل">
         </div>
-        <div class="form-group">
-            <label>اليوم</label>
-            <input type="number" id="dayInput" min="1" max="31" placeholder="مثال: 15">
+        <div class="row-2cols">
+            <div class="form-group">
+                <label>الدولة *</label>
+                <select id="countrySelect">
+                    <option value="السعودية">🇸🇦 السعودية</option>
+                    <option value="الإمارات">🇦🇪 الإمارات</option>
+                    <option value="الكويت">🇰🇼 الكويت</option>
+                    <option value="قطر">🇶🇦 قطر</option>
+                    <option value="عمان">🇴🇲 عمان</option>
+                    <option value="العراق">🇮🇶 العراق</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>المنتج</label>
+                <select id="productSelect">
+                    <option value="المن والسلوى">🍯 المن والسلوى</option>
+                    <option value="چكليت">🍫 چكليت</option>
+                </select>
+            </div>
+        </div>
+        <div class="row-2cols">
+            <div class="form-group">
+                <label>الشهر</label>
+                <select id="monthSelect">
+                    <option value="1">يناير</option><option value="2">فبراير</option><option value="3">مارس</option>
+                    <option value="4">أبريل</option><option value="5">مايو</option><option value="6">يونيو</option>
+                    <option value="7">يوليو</option><option value="8">أغسطس</option><option value="9">سبتمبر</option>
+                    <option value="10">أكتوبر</option><option value="11">نوفمبر</option><option value="12">ديسمبر</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>اليوم</label>
+                <input type="number" id="dayInput" min="1" max="31" placeholder="اليوم">
+            </div>
         </div>
         <div class="form-group">
             <label>الحالة</label>
@@ -457,333 +443,196 @@
             </select>
         </div>
         <div class="form-group">
-            <label>ملاحظات (اختياري)</label>
-            <textarea id="notesInput" rows="2" placeholder="أي ملاحظات إضافية..."></textarea>
+            <label>ملاحظات إضافية</label>
+            <textarea id="notesInput" rows="2" placeholder="أي ملاحظات..."></textarea>
         </div>
         <button class="btn-primary" id="saveOrderBtn"><i class="fas fa-save"></i> حفظ الطلب</button>
         <div><span class="back-link" id="backToMainFromAdd">↩ العودة للقائمة الرئيسية</span></div>
     </div>
 
-    <!-- Screen 3: Reports -->
+    <!-- التقارير -->
     <div id="reportsScreen" class="screen" style="display: none;">
-        <div class="screen-title"><i class="fas fa-chart-pie"></i> التقارير والإحصائيات</div>
+        <div class="screen-title"><i class="fas fa-chart-pie"></i> التقارير - عمر حلونچي</div>
         <div class="tabs">
             <button class="tab-btn active" data-tab="weekly">أسبوعي</button>
             <button class="tab-btn" data-tab="monthly">شهري</button>
         </div>
-
         <div class="filters-bar">
             <div class="filter-group">
                 <label>فلترة حسب المنتج</label>
                 <select id="productFilter">
                     <option value="all">جميع المنتجات</option>
-                    <option value="المن">🍯 المن</option>
-                    <option value="السلوى">🍬 السلوى</option>
+                    <option value="المن والسلوى">🍯 المن والسلوى</option>
+                    <option value="چكليت">🍫 چكليت</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>فلترة حسب الدولة</label>
+                <select id="countryFilter">
+                    <option value="all">جميع الدول</option>
+                    <option value="السعودية">🇸🇦 السعودية</option>
+                    <option value="الإمارات">🇦🇪 الإمارات</option>
+                    <option value="الكويت">🇰🇼 الكويت</option>
+                    <option value="قطر">🇶🇦 قطر</option>
+                    <option value="عمان">🇴🇲 عمان</option>
+                    <option value="العراق">🇮🇶 العراق</option>
                 </select>
             </div>
             <div class="filter-group">
                 <button class="export-btn" id="exportPdfBtn"><i class="fas fa-file-pdf"></i> تحميل PDF</button>
             </div>
         </div>
-
-        <div id="reportContent">
-            <!-- سيتم تعبئته -->
-        </div>
+        <div id="reportContent"></div>
         <div><span class="back-link" id="backToMainFromReports">↩ العودة للقائمة الرئيسية</span></div>
     </div>
 </div>
 
-<!-- Modal للتعديل -->
+<!-- Modal تعديل -->
 <div id="editModal" class="modal">
     <div class="modal-content">
-        <h3><i class="fas fa-edit"></i> تعديل الطلب</h3>
-        <div class="form-group">
-            <label>المنتج</label>
-            <select id="editProduct">
-                <option value="المن">🍯 المن</option>
-                <option value="السلوى">🍬 السلوى</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>الشهر</label>
-            <select id="editMonth">
-                <option value="1">يناير</option><option value="2">فبراير</option><option value="3">مارس</option>
-                <option value="4">أبريل</option><option value="5">مايو</option><option value="6">يونيو</option>
-                <option value="7">يوليو</option><option value="8">أغسطس</option><option value="9">سبتمبر</option>
-                <option value="10">أكتوبر</option><option value="11">نوفمبر</option><option value="12">ديسمبر</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>اليوم</label>
-            <input type="number" id="editDay" min="1" max="31">
-        </div>
-        <div class="form-group">
-            <label>الحالة</label>
-            <select id="editStatus">
-                <option value="تم الشحن">✅ تم الشحن</option>
-                <option value="لم يصل">⏳ لم يصل</option>
-                <option value="لم نجد أحدا">🏠 لم نجد أحداً</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>ملاحظات</label>
-            <textarea id="editNotes" rows="2"></textarea>
-        </div>
-        <div class="modal-buttons">
-            <button class="save-edit-btn" id="confirmEditBtn">حفظ التعديل</button>
-            <button class="cancel-edit-btn" id="cancelEditBtn">إلغاء</button>
-        </div>
+        <h3>تعديل الطلب</h3>
+        <div class="form-group"><label>اسم العميل</label><input id="editClientName"></div>
+        <div class="form-group"><label>الجوال</label><input id="editClientPhone"></div>
+        <div class="form-group"><label>العنوان</label><input id="editClientAddress"></div>
+        <div class="form-group"><label>الدولة</label><select id="editCountry"><option>السعودية</option><option>الإمارات</option><option>الكويت</option><option>قطر</option><option>عمان</option><option>العراق</option></select></div>
+        <div class="form-group"><label>المنتج</label><select id="editProduct"><option>المن والسلوى</option><option>چكليت</option></select></div>
+        <div class="row-2cols"><div class="form-group"><label>الشهر</label><select id="editMonth"></select></div><div class="form-group"><label>اليوم</label><input id="editDay" type="number"></div></div>
+        <div class="form-group"><label>الحالة</label><select id="editStatus"><option>تم الشحن</option><option>لم يصل</option><option>لم نجد أحدا</option></select></div>
+        <div class="form-group"><label>ملاحظات</label><textarea id="editNotes"></textarea></div>
+        <div class="modal-buttons"><button class="save-edit-btn" id="confirmEditBtn">حفظ</button><button class="cancel-edit-btn" id="cancelEditBtn">إلغاء</button></div>
     </div>
 </div>
 
 <script>
-    // ---------- الطلبات ----------
     let orders = [];
-    const STORAGE_KEY = 'salwa_orders_arabic_pdf';
+    const STORAGE_KEY = 'omar_halwanji_orders';
     let currentEditId = null;
     let currentReportType = "weekly";
     let currentProductFilter = "all";
+    let currentCountryFilter = "all";
 
     function loadData() {
         const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            orders = JSON.parse(stored);
-        } else {
-            orders = [];
-            saveData();
-        }
+        if (stored) orders = JSON.parse(stored);
+        else orders = [];
     }
+    function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(orders)); }
 
-    function saveData() {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(orders));
-    }
-
-    function addOrder(product, month, day, status, notes) {
-        if (day < 1 || day > 31) return false;
-        orders.push({
-            id: Date.now(),
-            product: product,
-            month: parseInt(month),
-            day: parseInt(day),
-            status: status,
-            notes: notes || "",
-            timestamp: Date.now()
-        });
+    function addOrder(orderData) {
+        orders.push({ id: Date.now(), timestamp: Date.now(), ...orderData });
         saveData();
         return true;
     }
-
-    function updateOrder(id, newProduct, newMonth, newDay, newStatus, newNotes) {
-        const index = orders.findIndex(o => o.id === id);
-        if (index !== -1) {
-            orders[index] = {
-                ...orders[index],
-                product: newProduct,
-                month: parseInt(newMonth),
-                day: parseInt(newDay),
-                status: newStatus,
-                notes: newNotes || ""
-            };
-            saveData();
-            return true;
-        }
+    function updateOrder(id, newData) {
+        const idx = orders.findIndex(o => o.id === id);
+        if (idx !== -1) { orders[idx] = { ...orders[idx], ...newData }; saveData(); return true; }
         return false;
     }
+    function deleteOrder(id) { orders = orders.filter(o => o.id !== id); saveData(); }
 
-    function deleteOrder(id) {
-        orders = orders.filter(o => o.id !== id);
-        saveData();
-    }
-
-    function getWeeklyOrders() {
-        const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-        let filtered = orders.filter(o => o.timestamp >= weekAgo);
-        if (currentProductFilter !== 'all') {
-            filtered = filtered.filter(o => o.product === currentProductFilter);
-        }
-        return filtered;
-    }
-
-    function getCurrentMonthOrders() {
-        const currentMonth = new Date().getMonth() + 1;
-        let filtered = orders.filter(o => o.month === currentMonth);
-        if (currentProductFilter !== 'all') {
-            filtered = filtered.filter(o => o.product === currentProductFilter);
-        }
-        return filtered;
-    }
-
-    function renderReport(type) {
-        let records = [];
-        let title = "";
-        if (type === 'weekly') {
-            records = getWeeklyOrders();
-            title = "التقرير الأسبوعي (آخر 7 أيام)";
+    function getFilteredOrders() {
+        let filtered = [...orders];
+        if (currentReportType === 'weekly') {
+            const weekAgo = Date.now() - 7*24*60*60*1000;
+            filtered = filtered.filter(o => o.timestamp >= weekAgo);
         } else {
-            records = getCurrentMonthOrders();
-            const monthNames = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
-            const currentMonthIndex = new Date().getMonth();
-            title = `التقرير الشهري - ${monthNames[currentMonthIndex]}`;
+            const currentMonth = new Date().getMonth() + 1;
+            filtered = filtered.filter(o => o.month === currentMonth);
         }
+        if (currentProductFilter !== 'all') filtered = filtered.filter(o => o.product === currentProductFilter);
+        if (currentCountryFilter !== 'all') filtered = filtered.filter(o => o.country === currentCountryFilter);
+        return filtered;
+    }
 
+    function renderReport() {
+        const records = getFilteredOrders();
         let shipped = 0, notArrived = 0, notFound = 0;
         records.forEach(r => {
             if (r.status === "تم الشحن") shipped++;
             else if (r.status === "لم يصل") notArrived++;
             else if (r.status === "لم نجد أحدا") notFound++;
         });
-
-        let html = `
-            <div class="stats-summary">
-                <div class="stat-card">✅ تم الشحن: ${shipped}</div>
-                <div class="stat-card">⏳ لم يصل: ${notArrived}</div>
-                <div class="stat-card">🏠 لم نجد أحداً: ${notFound}</div>
-                <div class="stat-card">📦 الإجمالي: ${records.length}</div>
-            </div>
-            <h3 style="margin: 10px 0;">${title}</h3>
-            <div style="overflow-x: auto;">
-            <table>
-                <thead>
-                    <tr>
-                        <th>المنتج</th>
-                        <th>التاريخ</th>
-                        <th>الحالة</th>
-                        <th>ملاحظات</th>
-                        <th>إجراءات</th>
-                    </tr>
-                </thead>
-                <tbody>
-        `;
-        if (records.length === 0) {
-            html += `<tr><td colspan="5" style="text-align:center;">⚠️ لا توجد طلبات في هذه الفترة</td></tr>`;
-        } else {
-            records.forEach(rec => {
-                let cls = rec.status === "تم الشحن" ? "status-shipped" : (rec.status === "لم يصل" ? "status-not-arrived" : "status-not-found");
-                html += `
-                    <tr>
-                        <td>${rec.product}</td>
-                        <td>${rec.month}/${rec.day}</td>
-                        <td><span class="status-badge ${cls}">${rec.status}</span></td>
-                        <td>${rec.notes || '-'}</td>
-                        <td>
-                            <button class="action-btn edit-btn" onclick="openEditModal(${rec.id})"><i class="fas fa-edit"></i></button>
-                            <button class="action-btn delete-btn" onclick="confirmDelete(${rec.id})"><i class="fas fa-trash-alt"></i></button>
-                         </td>
-                    </tr>
-                `;
-            });
-        }
-        html += `</tbody>
-            </table>
-            </div>`;
+        const title = currentReportType === 'weekly' ? "التقرير الأسبوعي (آخر 7 أيام)" : `التقرير الشهري - ${new Date().toLocaleString('ar', { month: 'long' })}`;
+        let html = `<div class="stats-summary">
+            <div class="stat-card">✅ تم الشحن: ${shipped}</div>
+            <div class="stat-card">⏳ لم يصل: ${notArrived}</div>
+            <div class="stat-card">🏠 لم نجد أحداً: ${notFound}</div>
+            <div class="stat-card">📦 الإجمالي: ${records.length}</div>
+        </div><h3>${title}</h3>
+        <div style="overflow-x:auto;"><table><thead><tr><th>العميل</th><th>الجوال</th><th>الدولة</th><th>المنتج</th><th>التاريخ</th><th>الحالة</th><th>ملاحظات</th><th>إجراءات</th></tr></thead><tbody>`;
+        if (records.length === 0) html += `<tr><td colspan="8">⚠️ لا توجد طلبات</td></tr>`;
+        else records.forEach(r => {
+            let cls = r.status === "تم الشحن" ? "status-shipped" : (r.status === "لم يصل" ? "status-not-arrived" : "status-not-found");
+            html += `<tr><td>${r.clientName}</td><td>${r.clientPhone}</td><td>${r.country}</td><td>${r.product}</td><td>${r.month}/${r.day}</td>
+            <td><span class="status-badge ${cls}">${r.status}</span></td><td>${r.notes || '-'}</td>
+            <td><button class="action-btn edit-btn" onclick="openEditModal(${r.id})"><i class="fas fa-edit"></i></button>
+            <button class="action-btn delete-btn" onclick="confirmDelete(${r.id})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
+        });
+        html += `</tbody></table></div>`;
         document.getElementById("reportContent").innerHTML = html;
     }
 
-    // تصدير PDF باستخدام html2canvas لضبط اللغة العربية
     async function exportToPDF() {
-        // الحصول على عنصر التقرير
-        const reportElement = document.getElementById("reportContent");
-        if (!reportElement) return;
-        
-        // إنشاء نسخة للطباعة داخل عنصر مؤقت
-        const printContainer = document.createElement('div');
-        printContainer.className = 'pdf-report-container';
-        printContainer.style.position = 'absolute';
-        printContainer.style.top = '-9999px';
-        printContainer.style.right = '0';
-        printContainer.style.background = 'white';
-        printContainer.style.width = '1000px';
-        printContainer.style.padding = '20px';
-        printContainer.style.fontFamily = "'Cairo', 'Tahoma', 'Arial', sans-serif";
-        
-        // نسخ محتوى التقرير مع الإحصائيات
-        const stats = reportElement.querySelector('.stats-summary');
-        const title = reportElement.querySelector('h3');
-        const table = reportElement.querySelector('table');
-        
-        if (stats) printContainer.appendChild(stats.cloneNode(true));
-        if (title) printContainer.appendChild(title.cloneNode(true));
-        if (table) printContainer.appendChild(table.cloneNode(true));
-        
-        // إضافة عنوان الشركة والتاريخ
-        const headerDiv = document.createElement('div');
-        headerDiv.style.textAlign = 'center';
-        headerDiv.style.marginBottom = '20px';
-        headerDiv.innerHTML = `<h2>شركة المن والسلوى</h2><p>تقرير الطلبات - تاريخ: ${new Date().toLocaleDateString('ar-EG')}</p><hr/>`;
-        printContainer.insertBefore(headerDiv, printContainer.firstChild);
-        
-        document.body.appendChild(printContainer);
-        
-        try {
-            const canvas = await html2canvas(printContainer, {
-                scale: 2,
-                logging: false,
-                useCORS: true,
-                backgroundColor: '#ffffff'
-            });
-            const imgData = canvas.toDataURL('image/png');
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF({
-                orientation: 'landscape',
-                unit: 'mm',
-                format: 'a4'
-            });
-            const imgWidth = 280; // A4 landscape width in mm
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
-            pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
-            pdf.save(`تقرير_${currentReportType}_${new Date().toISOString().slice(0,10)}.pdf`);
-        } catch (error) {
-            console.error('PDF error:', error);
-            alert('حدث خطأ أثناء إنشاء PDF');
-        } finally {
-            document.body.removeChild(printContainer);
-        }
+        const records = getFilteredOrders();
+        if (records.length === 0) { alert("لا توجد بيانات للتصدير"); return; }
+        const container = document.createElement('div');
+        container.dir = 'rtl';
+        container.style.fontFamily = "'Cairo', 'Tahoma'";
+        container.style.padding = '20px';
+        container.style.background = 'white';
+        container.innerHTML = `<h2 style="text-align:center">عمر حلونچي - تقرير الطلبات</h2>
+        <p style="text-align:center">تاريخ: ${new Date().toLocaleDateString('ar-EG')}</p><hr/>
+        <table border="1" cellpadding="5" style="width:100%; border-collapse:collapse"><thead><tr><th>العميل</th><th>الجوال</th><th>الدولة</th><th>المنتج</th><th>التاريخ</th><th>الحالة</th><th>ملاحظات</th></tr></thead><tbody>`;
+        records.forEach(r => {
+            container.innerHTML += `<tr><td>${r.clientName}</td><td>${r.clientPhone}</td><td>${r.country}</td><td>${r.product}</td><td>${r.month}/${r.day}</td><td>${r.status}</td><td>${r.notes || ''}</td></tr>`;
+        });
+        container.innerHTML += `</tbody></table>`;
+        document.body.appendChild(container);
+        const canvas = await html2canvas(container, { scale: 2, backgroundColor: '#ffffff' });
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('landscape', 'mm', 'a4');
+        const imgWidth = 280, imgHeight = (canvas.height * imgWidth) / canvas.width;
+        pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+        pdf.save(`تقرير_${currentReportType}_${new Date().toISOString().slice(0,10)}.pdf`);
+        document.body.removeChild(container);
     }
 
-    window.openEditModal = function(id) {
+    window.openEditModal = (id) => {
         const order = orders.find(o => o.id === id);
         if (!order) return;
         currentEditId = id;
+        document.getElementById('editClientName').value = order.clientName;
+        document.getElementById('editClientPhone').value = order.clientPhone;
+        document.getElementById('editClientAddress').value = order.clientAddress || '';
+        document.getElementById('editCountry').value = order.country;
         document.getElementById('editProduct').value = order.product;
         document.getElementById('editMonth').value = order.month;
         document.getElementById('editDay').value = order.day;
         document.getElementById('editStatus').value = order.status;
         document.getElementById('editNotes').value = order.notes || '';
         document.getElementById('editModal').classList.add('open');
-    }
-
-    window.confirmDelete = function(id) {
-        if (confirm("هل أنت متأكدة من حذف هذا الطلب؟")) {
-            deleteOrder(id);
-            renderReport(currentReportType);
-            alert("تم حذف الطلب بنجاح");
-        }
-    }
-
+    };
+    window.confirmDelete = (id) => { if(confirm("حذف الطلب؟")) { deleteOrder(id); renderReport(); alert("تم الحذف"); } };
+    function closeModal() { document.getElementById('editModal').classList.remove('open'); currentEditId = null; }
     function saveEdit() {
         if (!currentEditId) return;
-        const newProduct = document.getElementById('editProduct').value;
-        const newMonth = document.getElementById('editMonth').value;
-        const newDay = parseInt(document.getElementById('editDay').value);
-        const newStatus = document.getElementById('editStatus').value;
-        const newNotes = document.getElementById('editNotes').value;
-        if (isNaN(newDay) || newDay < 1 || newDay > 31) {
-            alert("اليوم يجب أن يكون بين 1 و 31");
-            return;
-        }
-        const success = updateOrder(currentEditId, newProduct, newMonth, newDay, newStatus, newNotes);
-        if (success) {
-            closeModal();
-            renderReport(currentReportType);
-            alert("تم تعديل الطلب بنجاح");
-        } else {
-            alert("حدث خطأ أثناء التعديل");
-        }
-    }
-
-    function closeModal() {
-        document.getElementById('editModal').classList.remove('open');
-        currentEditId = null;
+        const newData = {
+            clientName: document.getElementById('editClientName').value,
+            clientPhone: document.getElementById('editClientPhone').value,
+            clientAddress: document.getElementById('editClientAddress').value,
+            country: document.getElementById('editCountry').value,
+            product: document.getElementById('editProduct').value,
+            month: parseInt(document.getElementById('editMonth').value),
+            day: parseInt(document.getElementById('editDay').value),
+            status: document.getElementById('editStatus').value,
+            notes: document.getElementById('editNotes').value
+        };
+        if (newData.day < 1 || newData.day > 31) { alert("اليوم غير صحيح"); return; }
+        updateOrder(currentEditId, newData);
+        closeModal();
+        renderReport();
+        alert("تم التعديل");
     }
 
     function showScreen(screenId) {
@@ -793,92 +642,81 @@
         document.getElementById(screenId).style.display = "block";
     }
 
-    // أحداث
+    // Events
     document.getElementById("saveOrderBtn").addEventListener("click", () => {
-        const product = document.getElementById("productSelect").value;
-        const month = document.getElementById("monthSelect").value;
-        let day = document.getElementById("dayInput").value;
-        const status = document.getElementById("statusSelect").value;
-        const notes = document.getElementById("notesInput").value;
-        if (!day || day < 1 || day > 31) {
-            alert("يرجى إدخال يوم صحيح بين 1 و 31");
-            return;
-        }
-        if (addOrder(product, month, parseInt(day), status, notes)) {
-            alert(`✅ تم إضافة الطلب: ${product} - ${month}/${day} - ${status}`);
-            document.getElementById("dayInput").value = "";
-            document.getElementById("notesInput").value = "";
-        } else {
-            alert("خطأ في اليوم");
-        }
-    });
-
-    document.getElementById("productFilter").addEventListener("change", (e) => {
-        currentProductFilter = e.target.value;
-        renderReport(currentReportType);
-    });
-
-    document.querySelectorAll(".tab-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            currentReportType = btn.getAttribute("data-tab");
-            renderReport(currentReportType);
+        const clientName = document.getElementById("clientName").value.trim();
+        const clientPhone = document.getElementById("clientPhone").value.trim();
+        if (!clientName || !clientPhone) { alert("الرجاء إدخال اسم العميل والجوال"); return; }
+        const day = parseInt(document.getElementById("dayInput").value);
+        if (isNaN(day) || day<1 || day>31) { alert("اليوم بين 1 و31"); return; }
+        addOrder({
+            clientName, clientPhone, clientAddress: document.getElementById("clientAddress").value,
+            country: document.getElementById("countrySelect").value,
+            product: document.getElementById("productSelect").value,
+            month: parseInt(document.getElementById("monthSelect").value),
+            day: day,
+            status: document.getElementById("statusSelect").value,
+            notes: document.getElementById("notesInput").value
         });
+        alert("تم إضافة الطلب");
+        document.getElementById("clientName").value = "";
+        document.getElementById("clientPhone").value = "";
+        document.getElementById("clientAddress").value = "";
+        document.getElementById("dayInput").value = "";
+        document.getElementById("notesInput").value = "";
     });
-
+    document.getElementById("productFilter").addEventListener("change", e => { currentProductFilter = e.target.value; renderReport(); });
+    document.getElementById("countryFilter").addEventListener("change", e => { currentCountryFilter = e.target.value; renderReport(); });
+    document.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", e => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentReportType = btn.getAttribute("data-tab");
+        renderReport();
+    }));
     document.getElementById("exportPdfBtn").addEventListener("click", exportToPDF);
+    document.getElementById("goToAddOrderBtn").onclick = () => showScreen("addOrderScreen");
+    document.getElementById("goToReportsBtn").onclick = () => { showScreen("reportsScreen"); renderReport(); };
+    document.getElementById("backToMainFromAdd").onclick = () => showScreen("mainMenuScreen");
+    document.getElementById("backToMainFromReports").onclick = () => showScreen("mainMenuScreen");
+    document.getElementById("confirmEditBtn").onclick = saveEdit;
+    document.getElementById("cancelEditBtn").onclick = closeModal;
+    window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); };
 
-    document.getElementById("goToAddOrderBtn").addEventListener("click", () => showScreen("addOrderScreen"));
-    document.getElementById("goToReportsBtn").addEventListener("click", () => {
-        showScreen("reportsScreen");
-        renderReport(currentReportType);
-    });
-    document.getElementById("backToMainFromAdd").addEventListener("click", () => showScreen("mainMenuScreen"));
-    document.getElementById("backToMainFromReports").addEventListener("click", () => showScreen("mainMenuScreen"));
-
-    document.getElementById("confirmEditBtn").addEventListener("click", saveEdit);
-    document.getElementById("cancelEditBtn").addEventListener("click", closeModal);
-    window.addEventListener("click", (e) => {
-        const modal = document.getElementById("editModal");
-        if (e.target === modal) closeModal();
-    });
-
+    // Login with remember
     function checkLogin() {
-        const isLogged = sessionStorage.getItem("managerLogged") === "true";
-        const loginDiv = document.getElementById("loginOverlay");
-        const appDiv = document.getElementById("appWrapper");
+        const isLogged = sessionStorage.getItem("omarLogged") === "true" || localStorage.getItem("omarRemember") === "true";
         if (isLogged) {
-            loginDiv.style.display = "none";
-            appDiv.style.display = "block";
+            document.getElementById("loginOverlay").style.display = "none";
+            document.getElementById("appWrapper").style.display = "block";
             showScreen("mainMenuScreen");
         } else {
-            loginDiv.style.display = "flex";
-            appDiv.style.display = "none";
+            document.getElementById("loginOverlay").style.display = "flex";
+            document.getElementById("appWrapper").style.display = "none";
         }
     }
-
-    document.getElementById("loginBtn").addEventListener("click", () => {
+    document.getElementById("loginBtn").onclick = () => {
         const user = document.getElementById("username").value.trim();
         const pass = document.getElementById("password").value.trim();
         if (user === "اسراء" && pass === "1110") {
-            sessionStorage.setItem("managerLogged", "true");
-            document.getElementById("loginError").innerText = "";
+            if (document.getElementById("rememberMe").checked) localStorage.setItem("omarRemember", "true");
+            else localStorage.removeItem("omarRemember");
+            sessionStorage.setItem("omarLogged", "true");
             checkLogin();
-        } else {
-            document.getElementById("loginError").innerText = "اسم المستخدم أو كلمة المرور غير صحيحة";
-        }
-    });
-
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-        sessionStorage.removeItem("managerLogged");
+        } else document.getElementById("loginError").innerText = "بيانات دخول غير صحيحة";
+    };
+    document.getElementById("logoutBtn").onclick = () => {
+        sessionStorage.removeItem("omarLogged");
+        localStorage.removeItem("omarRemember");
         checkLogin();
-        document.getElementById("username").value = "";
-        document.getElementById("password").value = "";
-    });
-
+    };
+    // populate edit month select
+    const months = [1,2,3,4,5,6,7,8,9,10,11,12];
+    const monthNames = ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"];
+    let monthOptions = months.map(m => `<option value="${m}">${monthNames[m-1]}</option>`).join('');
+    document.getElementById("editMonth").innerHTML = monthOptions;
     loadData();
     checkLogin();
 </script>
 </body>
 </html>
+
